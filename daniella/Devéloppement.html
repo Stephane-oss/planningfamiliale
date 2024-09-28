@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Développement</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Poppins', sans-serif; 
+}
+body{
+   background-color: #f2f2f2;
+}
+.slide{
+    height: 100%;
+    width: 195px;
+    position: absolute;
+    background-color: #fff;
+    transition: 0.5s ease;
+    transform: translateX(-195px);
+}
+h1{
+    color: #ff7700;
+    font-weight: 800;
+    text-align: right;
+    padding: 10px 0;
+    padding-right: 30px;
+    pointer-events: none;
+    font-family: "Poppins", system-ui;
+    font-weight: 700;
+}
+ul li{
+    list-style: none;
+}
+ul li a{
+    color: #011a41;
+    font-weight: 500;
+    padding: 5px 0;
+    display: block;
+    text-decoration: none;
+    transition: 0.2s ease-out;
+}
+ul li:hover a{
+    color: #fff;
+    background-color: #ff6600;
+}
+ul li a i{
+    width: 40px;
+    text-align: center;
+}
+input{
+    display: none;
+    visibility: hidden;
+    -webkit-appearance: none;
+}
+.toggle{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 20px;
+    left: 15px;
+    z-index: 1;
+    cursor: pointer;
+    border-radius: 2px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0.3);
+}
+.toggle .common{
+    position: absolute;
+    height: 2px;
+    width: 20px;
+    background-color: #8000ff;
+    border-radius: 50px;
+    transition: 0.3s ease;
+}
+.toggle .top_line{
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.toggle .middle_line{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.toggle .bottom_line{
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+input:checked ~ .toggle .top_line{
+    left: 2px;
+    top: 14px;
+    width: 25px;
+    transform: rotate(45deg);
+}
+input:checked ~ .toggle .middle_line{
+    opacity: 0;
+    transform: translateX(20px);
+}
+input:checked ~ .toggle .bottom_line{
+    left: 2px;
+    top: 14px;
+    width: 25px;
+    transform: rotate(-45deg);
+}
+input:checked ~ .slide{
+    transform: translateX(0);
+    box-shadow: 0 0 15px rgb(0,0,0,0.5);
+}
+
+#dev{
+    text-align: center;
+    font-size: 25px;
+    color: antiquewhite;
+    text-decoration: underline;
+}
+.p1{
+    margin-left: 40px;
+    font-size: 22px;
+}
+.fond{
+    float: right;
+    margin-top: -13px;
+    margin-right: -5px;
+}
+.h4{
+    color: red;
+    font-size: 40px;
+    margin-left: 100px;
+}
+.h5{
+    color: red;
+    font-size: 50px;
+    margin-left: 100px;
+}
+.h6{
+    color: red;
+    font-size: 60px;
+    margin-left: 100px;
+}
+.p2{
+    margin-left: 40px;
+    font-size: 22px;
+}
+.zz{
+    text-align: center;
+}
+img{
+    border: 1px solid red;
+    border-radius: 40px 40px 40px 40px;
+}
+.h7{
+    color: antiquewhite;
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+}
+.p3{
+    margin-left: 40px;
+    font-size: 22px;
+}
+.rr{
+    text-align: center;
+}
+.h8{
+    color: antiquewhite;
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+}
+.p4{
+    margin-left: 40px;
+    font-size: 22px;
+}
+.kk{
+    text-align: center;
+}
+.h9{
+    color: antiquewhite;
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+}
+.p5{
+    margin-left: 40px;
+    font-size: 22px;
+}
+.ss{
+    text-align: center;
+}
+.h10{
+    color: antiquewhite;
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+}
+.p6{
+    margin-left: 40px;
+    font-size: 22px;
+}
+.aa{
+    text-align: center;
+}
+.h11{
+    color: antiquewhite;
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+}
+.p7{
+    margin-left: 40px;
+    font-size: 22px;
+}
+.bb{
+    text-align: center;
+}
+.h12{
+    color: antiquewhite;
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+}
+.p8{
+    margin-left: 40px;
+    font-size: 22px;
+}
+.cc{
+    text-align: center;
+}
+.h13{
+    color: RED;
+    font-size: 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 230px;
+}
+.h14{
+    color: RED;
+    font-size: 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 230px;
+}
+.p9{
+    margin-left: 40px;
+    font-size: 22px;
+}
+.dd{
+    text-align: center;
+}
+.h15{
+    color: antiquewhite;
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+}
+.p10{
+    margin-left: 40px;
+    font-size: 22px;
+}
+.ff{
+    text-align: center;
+}
+.h16{
+    color: antiquewhite;
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+}
+.p11{
+    margin-left: 40px;
+    font-size: 22px;
+}
+#liste{
+    margin-left: 150px;
+    font-size: 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.p12{
+    margin-left: 40px;
+    font-size: 22px; 
+}
+#liste1{
+    margin-left: 150px;
+    font-size: 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.p13{
+    margin-left: 40px;
+    font-size: 22px; 
+}
+#liste2{
+    margin-left: 150px;
+    font-size: 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.p14{
+    margin-left: 40px;
+    font-size: 22px; 
+}
+#liste3{
+    margin-left: 150px;
+    font-size: 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.h17{
+    color: antiquewhite;
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+}
+.p15{
+    margin-left: 40px;
+    font-size: 22px;
+}
+.ee{
+    text-align: center;
+}
+.p16{
+    margin-left: 40px;
+    font-size: 22px;
+}
+.h18{
+    color: antiquewhite;
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+}
+.p17{
+    margin-left: 40px;
+    font-size: 22px;
+}
+.p18{
+    margin-left: 40px;
+    font-size: 22px;
+}
+#liste4{
+    margin-left: 150px;
+    font-size: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.p19{
+    margin-left: 40px;
+    font-size: 22px;
+}
+body{
+    background: url("image/developpement1.jpg") fixed;
+    opacity:1;
+}
+p{
+    color: antiquewhite;
+}
+section{
+    color: aqua;
+}
+p{
+    margin-left: 40px;
+}
+#a1{
+    margin-top: 60px;
+    background-color: #f2f2f2;
+}
+#a2{
+    margin-top: 60px;
+    background-color: #f2f2f2;
+}
+    </style>
+    </head>
+    <body>
+        <label>
+            <input type="checkbox">
+            <div class="toggle">
+                <span class="top_line common"></span>
+                <span class="middle_line common"></span>
+                <span class="bottom_line common"></span>
+            </div>
+            
+            <div class="slide">
+                <h1>Menu</h1>
+                    <ul>
+                        <li><a href="Accueil.html"><i class="fas fa-tv"></i>Accueil</a></li>
+                    <li><a href="INTRODUCTION.html"><i class="far fa-user"></i>Introduction</a></li>
+                    <li><a href="Devéloppement.html"><i class="fab fa-gripfire"></i>Devéloppement</a></li>
+                    <li><a href="Conclusion.html"><i class="far fa-comments"></i>Conclusion</a></li>
+                    </ul>
+            </div>
+        </label>
+    
+        <script src="script.js"></script>
+        <div id="a1">
+        <p><a href="#bas" id="haut">bas</a></p>
+        </div>
+    <div id="dev">
+    <h3>DEVELOPPEMENT</h3>
+</div>
+<div class="p1">
+    <P>
+        Le planning familial se réfère à la pratique de contrôler le nombre de naissances par des moyens contraceptifs et autres méthodes.</br> Il comprend des services, des informations et des outils pour aider les individus et les couples à décider librement et de manière</br> responsable du nombre d'enfants qu'ils souhaitent avoir et de l'espacement de ces naissances.
+    </br>Il englobe donc un ensemble de pratiques et de méthodes visant à permettre aux personnes de décider librement </br>du nombre de leurs enfants, de l’espacement des naissances et du moment opportun pour concevoir. 
+</br>Parmi ces méthodes, on distingue deux grandes catégories : les méthodes contraceptives artificielles et les méthodes naturelles.
+    </P>
+</div>
+<div class="h4">
+        <h4>Les Méthodes artificielles</h4>
+    </div>
+        <div class="h5">
+            <h5>Les contraceptifs Hormonaux</h5>
+        </div>
+        <div class="h6">
+            <h6>Pilules contraceptives</h6>
+        </div>
+        <div class="p2">
+            <p>
+                La pilule contraceptive est une méthode hormonale de contraception féminine permettant d’éviter les grossesses non désirées.</br> La pilule peut également vous aider en cas de symptômes prémenstruels, de douleurs menstruelles importants. 
+            </br>Les pilules contraceptives ne sont pas sans effet secondaire et il est nécessaire de faire le point avec un médecin afin de trouver </br>la contraception la plus adaptée pour vous.
+            </p>
+        </div>
+        <div class="zz">
+            <img src="image/image1.png" width="150" height="150">
+        </div>
+        <div class="h7">
+            <h7>Injections contraceptives</h7>
+        </div>
+        <div class="p3">
+            <p>
+                Cette méthode est également appelée « contraceptif injectable ». Elle ne contient qu’une hormone appelée progestérone (pas d’œstrogènes).</br> Cette méthode de contraception réversible est administrée par un professionnel de la santé dans le bras ou dans la fesse toutes les 12 semaines (quatre fois par année)
+            </p>
+        </div>
+        <div class="rr">
+            <img src="image/image2.png" width="150" height="150">
+        </div>
+        <div class="h8">
+            <h8>Implants sous-cutanés</h8>
+        </div>
+        <div class="p4">
+            <p>
+                L’implant contraceptif se présente sous la forme d’un bâtonnet, de 2mm de diamètre et de 4cm de long,</br> qui délivre en continu une faible dose d’un progestatif, l’étonogestrel. Sous anésthésie locale,</br> il est inséré sous la peau de la face interne du bras (gauche chez les droitières et vice-versa) à l’aide d’un applicateur stérile.</br> Sa durée d’action est de trois ans et son retrait, possible à tout moment, il est simple mais laisse une petite cicatrice.</br> 
+            </p>
+        </div>
+        <div class="kk">
+            <img src="image/image3.png" width="150" height="150">
+        </div>
+        <div class="h9">
+            <h9>Les dispositifs intra-utérins (DIU)</h9>
+        </div>
+        <div class="p5">
+            <p>
+                Le DIU au cuivre est largement utilisé en raison de sa longue durée de protection et de son coût abordable. C’est un moyen de </br>contraception pouvant être utilisé, en l’absence de contre indication, chez les adolscentes </br>et les femmes ayant eu un enfant ou n’ayant pas encore eu de grossesse  
+            </p>
+        </div>
+        <div class="ss">
+            <img src="image/image4.png" width="150" height="150">
+        </div>
+        <div class="h10">
+            <h10>Les préservatifs</h10>  
+        </div>
+        <div class="p6">
+            <p>
+                Disponibles dans les centres de santé, ils offrent une protection contre les grossesses non désirées et les infections sexuellement </br>transmissibles. Les préservatifs sont sûrs et permettent de prévenir très efficacement les infections sexuellement</br> transmissibles, y compris l’infection à VIH, et les grossesses non planifiées. 
+            </p>
+        </div>
+        <div class="aa">
+            <img src="image/image5.png" width="150" height="150">
+        </div>
+        <div class="h11">
+            <h11>La stérilisation</h11>
+        </div>
+        <div class="p7">
+            <p>
+                Vasectomie pour les hommes et ligature des trompes pour les femmes, bien que ces méthodes soient moins courantes en raison des</br> croyances culturelles et de la disponibilité limitée des services. C’est une technique destinée à la destruction de tous les micro-organismes</br>p dans un aliment, par la chaleur, addition d’antiseptiques ou irridation, de façon à éviter la transmission de germes pathogènes et le développement d’altérations. 
+            </p>
+        </div>
+        <div class="bb">
+            <img src="image/image6.png" width="150" height="150">
+        </div>
+        <div class="h12">
+            <h12>Les contraceptifs d'urgence ou 72h</h12>
+        </div>
+        <div class="p8">
+            <p>
+                Utilisés pour prévenir une grossesse après un rapport sexuel non protégé. Il est également appelé la pilule de lendemain,</br> il agit directement sur les ovaires en décalant l’ovulation grâce à l’hormone qu’elle contient. Ainsi, les spérmatozoides</br>p dans les trompes ne rencontrent aucun ovule à féconder.
+            </p>
+        </div>
+        <div class="cc">
+            <img src="image/image7.png" width="150" height="150">
+        </div>
+        <div class="h13">
+            <h13>Les méthodes contraceptives naturelles</h13>
+        </div>
+        <div class="h14">
+            <h14>Méthode de température</h14>
+    </div>
+    <div class="p9">
+        <p>
+            C'est une méthode qui tient compte de la température d'une femme. Pour appliquer cette méthode il faut disposer un thermomètre en prenant</br>p et en mesurant la température du corps d'une femme. Cette action doit se faire régulièrement. En effet, la température d'une femme augmente </br>plégèrement après l’ovulation par rapport à sa température normale. 
+Cette notation permet d'apercevoir la variation de la température </br>pet le trouble hormonal de la femme mais également d'écarter la grossesse non désirée.
+        </p>
+    </div>
+    <div class="dd">
+        <img src="image/image8.png" width="150" height="150">
+    </div>
+    <div class="h15">
+        <h15>Méthode calendaire</h15>
+    </div>
+    <div class="p10">
+        <p>
+            Comme son nom l'indique, un calendrier est l'outil utilisé.  La méthode calendaire tient compte du cycle menstruel de la femme et est plutôt</br>p appropriée aux femmes avec des menstruations régulières afin de détecter facilement la période d'ovulation. D'après cette méthode, l'ovulation se produit 14 jours</br>p avant le début de la prochaine règle. Donc, en connaissant la période d'ovulation préalablement, la relation sexuelle est mieux gérée.
+        </p>
+    </div>
+    <div class="ff">
+        <img src="image/image9.png" width="150" height="150">
+    </div>
+    <div class="h16">
+        <h16>Méthode MAMA</h16>
+    </div>
+    <div class="p11">
+        <p>
+            La méthode MAMA (Méthode de l'Allaitement Maternel et de l'Aménorrhée) est une méthode naturelle de contraception basée sur les effets contraceptifs de l'allaitement</br>maternel exclusif. 
+            Pour que la méthode MAMA soit efficace, trois critères doivent être remplis :
+        </p>
+    </div>
+    <section>
+    <div id="liste">
+        <ul>
+            <li>Allaitement exclusif ou quasi-exclusif</li>
+        </ul>
+    </div>
+</section>
+    <div class="p12">
+    <p>
+        Le bébé est nourri uniquement au sein, sans suppléments alimentaires ou liquides (sauf vitamines, minéraux, ou médicaments).
+Les tétées doivent être fréquentes, au moins toutes</br> les 4 heures pendant la journée et toutes les 6 heures pendant la nuit.
+</p>
+</div>
+<section>
+<div id="liste1">
+    <ul>
+        <li>Absence de retour de règles (aménorrhée)</li>
+    </ul>
+</div>
+</section>
+<div class="p13">
+    <p>
+        La mère ne doit pas avoir eu ses règles depuis l'accouchement. Une véritable menstruation est définie comme deux jours consécutifs de saignement.
+    </p>
+</div>
+<section>
+<div id="liste2">
+    <ul>
+        <li>Bébé âgé de moins de 6 mois</li>
+</ul>
+</div>
+</section>
+<div class="p14">
+    <p>
+        La méthode est efficace uniquement durant les 6 premiers mois de vie du bébé.
+Lorsque les trois critères sont respectés,</br> la méthode MAMA est efficace à environ 98%.
+Si un des critères n’est plus respecté (par exemple, si les règles reviennent, si le bébé reçoit d'autres aliments ou si le bébé a plus </br>de 6 mois), il est recommandé de passer à une autre méthode de contraception.
+    </br> Son Avantage:
+</p>
+</div>
+<section>
+<div id="liste3">
+    <ul>
+        <li>Naturelle et sans Coût: Aucun besoin de médicaments ou dispositifs.</li>
+        <li>bénéfices pour la santé du bébé: Favorise l' allaitement maternel, qui est bénéfique pour la santé du nourrisson</li>
+        <li>Pratique pour les mères qui allaitent déja: Nécessite pas de méthodes contraceptives supplémentaires</li>
+    </ul>
+</div>
+</section>
+<div class="h17">
+    <h17>Méthode GLAIRE CERVICAL</h17>
+</div>
+<div class="p15">
+    <p>
+        La méthode de l'observation de la glaire cervicale, également connue sous le nom de méthode Billings ou méthode de la glaire cervicale,</br> est une technique de planification familiale naturelle. Elle repose sur l'observation et l'interprétation des changements dans la glaire cervicale</br> pour identifier les périodes fertiles et infertiles du cycle menstruel. 
+    </p>
+</div>
+<div class="ee">
+    <img src="image/image10.png" width="150" height="150">
+</div>
+<div class="p16">
+    <p>
+        Phase fertile :  La glaire est abondante, claire, élastique et glissante. Cela indique que l'ovulation approche.
+    </br>Phase infertile : Après l'ovulation, la glaire devient plus épaisse et collante, ou disparaît complètement. Cela signale la fin de la période</br> fertile
+    </p>
+</div>
+<div class="h18">
+    <h18>LES CONSEQUENCES</h18>
+</div>
+<div class="p17">
+    <p>
+        Bien que le planning familial nous aide à réduire les taux de grossesses non désirées et d’atténuer la nécessité de d’avortement à risque,</br> le planning familial engendre également des effets ou même des conséquences néfastes surtout pour les femmes. Alors, dans ce prochain chapitre,</br> nous allons évoquer un à un les conséquences du planning familial.
+	Comme toute pratique, le planning familial a des conséquences indésirables.</br> Mal utilisé, il peut ruiner un couple mais aussi la santé de la personne qui l’utilise, c’est-à-dire la santé des femmes.
+    </p>
+</div>
+<div class="p18">
+    <p>
+       Les effets indésirables ou inconvénients du planning familial dépendent notamment du type de moyens contraceptives utilisés. </br>Nous allons alors énumérer de manière générales quelques effets indésirables du planning familial :
+    </p>
+</div>
+<section>
+<div id="liste4">
+    <ul>
+        <li>Possibilité de prise de poids chez certaines femmes prédisposées</li>
+        <li>Apparition de problème de peau type acné</li>
+        <li>Des règles irrégulières, soit trop fréquentesn soit trop espacées, voir même absence complète de saignements (aménorrhée). Il est </br>à noter que ceci peut être un effet apprécié par les femmes</li>
+        <li>Le temps d'attente pour retrouver la fertilité, ce temps d'attente dépend du physique de la femme</li>
+        <li>La baisse de libido (recherche instictive du plaisir, spécialement du plaisir sexuel)</li>
+        <li>Possibilité de sensibilité des seins</li>
+        <li>Possibilité d'avoir une céohalées (une sensation douloureuse dans la partie de la tête</li>
+        <li>L'augmentation de tension artérielle</li>
+        <li>Le risque de développer certaines maladies comme les thromboses veineuses (correspondent à un caillot de sang qui se forment dans une veine généralement </br>placées dans la jambe) et bien même un cancer du col de l'utérus. Il est à noter que ces risques sont destinés aux femmes qui pratiquent les contraceptifs oraux</li>
+        <li>La réduction de la densité minérale osseuse (masse osseuse)</li>
+        <li>Le planning familial n'offre aucune protection contre les maladies sexuellement transmissibles</li>
+    </ul>
+</div>
+</section>
+<div class="p19">
+    <p>
+        Ces effets secondaires dépendent notamment du type de moyens contraceptives utilisés et du physique de la femme. </br>Si des effets secondaires dangereux apparaissent, il est recommandé de consulter un spécialiste.
+    </p>
+</div>
+<div id="a2">
+<p><a href="#haut"id="bas">haut</a></p>
+</div>
+    </body>
+</html>
